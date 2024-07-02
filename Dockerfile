@@ -6,9 +6,10 @@ COPY ./ .
 
 RUN cargo build --release --features s3
 
-FROM alpine
+FROM ubuntu
 
-RUN apk add -U ca-certificates
+RUN apt-get update
+RUN apt-get install -y ca-certificates
 
 WORKDIR /build
 
